@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Simple Calculator</h1>
+        <form method="POST">
+            <input type="text" name="num1" placeholder="Enter first number" required>
+            <input type="text" name="num2" placeholder="Enter second number" required>
+            <select name="operation" required>
+                <option value="add">Addition</option>
+                <option value="subtract">Subtraction</option>
+                <option value="multiply">Multiplication</option>
+                <option value="divide">Division</option>
+                <option value="power">Power</option>
+                <option value="sqrt">Square Root</option>
+                <option value="modulus">Modulus</option>
+                <option value="log">Logarithm</option>
+                <option value="factorial">Factorial</option>
+                <option value="exp">Exponential</option>
+                <option value="sin">Sine</option>
+                <option value="cos">Cosine</option>
+                <option value="tan">Tangent</option>
+                <option value="average">Average</option>
+                <option value="percentage">Percentage</option>
+                <option value="cgpa">CGPA</option>
+            </select>
+            <button type="submit">Calculate</button>
+        </form>
+
+        {% if result is not none %}
+        <div class="result">
+            <h2>Result: {{ result }}</h2>
+        </div>
+        {% endif %}
+
+        {% if error_message %}
+        <div class="error">
+            <h2>{{ error_message }}</h2>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
